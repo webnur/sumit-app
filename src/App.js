@@ -1,6 +1,8 @@
 import './App.css';
 import ClickCounter from './components/ClickCounter';
+import Counter from './components/Counter';
 import HoverCounter from './components/HoverCounter';
+import User from './components/Users';
 
 //import BoilingVerdict from './components/Boiling/BoilingVerdict';
 // import Calculator from './components/Boiling/Calculator';
@@ -24,8 +26,16 @@ function App() {
     //   </Emoji>
 
     <div>
-      <ClickCounter></ClickCounter>
-      <HoverCounter></HoverCounter>
+      {/* <ClickCounter></ClickCounter>
+      <HoverCounter></HoverCounter> */}
+      {/* <User name={(isLoggedIn) => (isLoggedIn ? 'Nurul Islam' : 'tanvir ahmded')} /> */}
+
+      <Counter render={(counter, incrementCount) => (
+        <ClickCounter count={counter} incrementCount={incrementCount} />
+      )} />
+            <Counter render={(counter, incrementCount) => (
+        <HoverCounter count={counter} incrementCount={incrementCount} />
+      )} />
     </div>
 );
 
