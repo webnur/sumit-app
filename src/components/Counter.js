@@ -1,16 +1,19 @@
-import React from "react";
+import React from 'react';
 
-export default class Counter extends React.Component {
+class Counter extends React.Component {
     state = {
-        count: 0
-    }
-    incrementCount = () => {
-      this.setState((prevState) => ({ count: prevState.count + 1}));
-    }
+        count: 0,
+    };
 
-    render(){
-        const {render} = this.props
-        const {count} = this.state
-        return render(count, this.incrementCount)
+    incrementCount = () => {
+        this.setState((prevState) => ({ count: prevState.count + 1 }));
+    };
+
+    render() {
+        const { children } = this.props;
+        const { count } = this.state;
+        return children(count, this.incrementCount);
     }
 }
+
+export default Counter;
