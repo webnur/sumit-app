@@ -1,19 +1,33 @@
-import React from 'react';
+import { useState } from "react/cjs/react.development"
 
-class Counter extends React.Component {
-    state = {
-        count: 0,
+function Counter(){
+    const [count, setCount] = useState(0)
+
+    // let i = 5;
+    // const addFive = () => {
+    //     while(i < 5){
+    //         setCount((prevState) => prevState + 1)
+    //         i += 1;
+    //     }
+    // }
+    let i = 0;
+    const addFive = () => {
+        while (i < 5) {
+            setCount((prevState) => prevState + 1);
+            i += 1;
+        }
     };
 
-    incrementCount = () => {
-        this.setState((prevState) => ({ count: prevState.count + 1 }));
-    };
 
-    render() {
-        const { children } = this.props;
-        const { count } = this.state;
-        return children(count, this.incrementCount);
-    }
+    return(
+        <div>
+            <p>{count}</p>
+            <button type="button" onClick={() =>setCount((prevState) => prevState + 1)}>add one</button>
+            <p>
+                <button type="button" onClick={addFive}>add 5</button>
+            </p>
+        </div>
+    )
 }
 
 export default Counter;
