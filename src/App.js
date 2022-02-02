@@ -1,24 +1,38 @@
+import { useCallback, useMemo, useState } from 'react';
+import Button from './components/Button';
+import ShowCount from './components/ShowCount';
+import Title from './components/Title';
 
-import { useState } from 'react/cjs/react.development';
-import MyComponet from './components/MyComponet';
-//import MyComponetClass from './components/MyComponetClass';
+function App() {
+    const [count1, setCount1] = useState(0);
+    const [count2, setCount2] = useState(0);
 
+    const incrementByOne = useCallback(() => {
+        setCount1((prevCount) => prevCount + 1);
+    }, []);
 
-export default function App () {
+    const incrementByFive = useCallback(() => {
+        setCount2((prevCount) => prevCount + 5);
+    }, []);
 
-    const [show, setShow] = useState(true)
+    const isEvenOrOdd = useMemo(() => {
+        let i = 0;
+        while (i < 1000000000) i += 1; // costly operation
+        return count1 % 2 === 0;
+    }, [count1]);
 
- 
-        return (
-            <div className='todo'>
-               <h2>we shall learn useEfect() today</h2>
-
-               {/* <MyComponetClass /> */}             
-               <div>{show && <MyComponet />}</div>
-               <p>
-                   <button type="button" onClick={() => setShow((prevShow) => !prevShow)}>{show ? 'Hide Post' : 'Show Post'}</button>
-               </p>
-            </div>
-        )  
-    
+    return (
+        <div className="app">
+            <Title />
+            <ShowCount count={count1} title="Counter 1" />
+            <span>{isEvenOrOdd ? 'Even' : 'Odd'}</span>
+            <Button handleClick={incrementByOne}>Increment by one</Button>
+            <hr />
+            <ShowCount count={count2} title="Counter 2" />
+            <Button handleClick={incrementByFive}>Increment by five</Button>
+        </div>
+    );
 }
+
+export default App;
+
