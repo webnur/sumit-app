@@ -1,17 +1,16 @@
-import Form from "./components/Form";
-import Time from "./components/Time";
-function App() {
+import GetPost2 from "./components/GetPost2";
 
+
+
+function App() {
     return (
         <div className="app">
-            <h3>Hello Bangladesh</h3>
-            <Form />
-
-            <hr />
-            <Time />
+          
+            <GetPost2 />
         </div>
     );
 }
 
 export default App;
+
 
