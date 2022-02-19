@@ -1,12 +1,12 @@
-import GetPost2 from "./components/GetPost2";
-
-
+import LayoutComponetOne from "./components/LayoutComponent";
+import LayoutComponetTwo from "./components/LayoutComponetTwo";
 
 function App() {
     return (
         <div className="app">
           
-            <GetPost2 />
+         <LayoutComponetOne />
+         <LayoutComponetTwo />
         </div>
     );
 }
