@@ -1,13 +1,21 @@
-import LayoutComponetOne from "./components/LayoutComponent";
-import LayoutComponetTwo from "./components/LayoutComponetTwo";
+// import './assets/css/dark.css'
+import Tutorial from './components/Tutorial';
+import GlobalStyled from './components/styles/Global.styles';
+import { ThemeProvider } from "styled-components";
+
+
 
 function App() {
     return (
-        <div className="app">
-          
-         <LayoutComponetOne />
-         <LayoutComponetTwo />
-        </div>
+        <>
+            <GlobalStyled />
+            <Tutorial />
+
+            {/* <ThemeProvider theme="dark">
+                <Tutorial />
+            </ThemeProvider> */}
+            
+        </>
     );
 }
 
